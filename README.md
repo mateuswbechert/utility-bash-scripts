@@ -175,6 +175,28 @@ Dependencies: [openssl](https://www.openssl.org/)
 show-certificate google.com
 ```
 
+### :camera: Optimize images size
+Script: [optimage](optimage)
+Dependencies:
+```
+apt-get update && apt-get -y install gcc libc6-dev libjpeg-progs trimage imagemagick pngquant
+git clone https://github.com/kormoc/imgopt.git
+cd imgopt
+chmod +x imgopt
+cp imgopt /usr/local/bin/
+gcc -o jfifremove jfifremove.c
+mv jfifremove /usr/local/bin/
+wget http://static.jonof.id.au/dl/kenutils/pngout-20150319-linux.tar.gz
+tar -zxf pngout-20150319-linux.tar.gz
+cd pngout-20150319-linux/x86_64
+mv pngout /usr/local/bin/ 
+```
+
+```sh
+optimage <dir> --all  #Recursively optimize all images in the specified directory 
+optimage <dir>        #Recursively optimize all images modified in last 3 days
+```
+
 ## 🤘🏻 SIMPLE BASH COMMANDS
 
 These commands are so easy to use that creating a script for them would be overkill.
